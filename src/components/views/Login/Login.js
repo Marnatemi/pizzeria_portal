@@ -17,7 +17,6 @@ const Login = () => (
         <Button component={Link} to={process.env.PUBLIC_URL + '/'} variant='outlined' color='primary' size='large'>LOG IN</Button>
       </form>
     </Container>
-\
   </Paper>
 );
 
