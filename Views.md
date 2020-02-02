@@ -2,7 +2,7 @@
 
 - "/"
   - statystyki dzisiejszych zamówień( zdalne i lokalne )
-  - lista rezerwacju i eventów zaplanowanych na dziś
+  - lista rezerwacji i eventów zaplanowanych na dziś
 
 # Logowanie
 
