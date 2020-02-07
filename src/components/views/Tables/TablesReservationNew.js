@@ -5,33 +5,27 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+import {currentDate} from './utilsTables';
+
 
 const demoContent = {
-  eventOptions: [
+  reservationOptions: [
     { id: 'Hour', options: ['12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'] },
     { id: 'Duration', options: ['1 h', '1,5 h', '2 h', '2,5 h', '3 h', '3,5 h', '4 h', '4,5 h', '5 h', '5,5 h', '6 h', '6,5 h', '7 h', '7,5 h', '8 h', '8,5 h', '9 h'] },
     { id: 'Table', options: ['1', '2', '3'] },
     { id: 'Guests', options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'] },
     { id: 'Starters', options: ['bread', 'lemonWater', 'bread & lemonWater'] },
   ],
-  eventId: 2,
-  eventDate: '2019-09-13',
-  Hour: '16:00',
-  Table: 3,
-  Duration: '1 h',
-  Guests: 3,
-  Starters: 'bread & lemonWater',
 };
 
-
-const TablesEvents = () => {
+const TablesReservationNew = () => {
 
   const [state, setState] = React.useState({
-    Hour: `${demoContent.Hour}`,
-    Duration: `${demoContent.Duration}`,
-    Table: `${demoContent.Table}`,
-    Guests: `${demoContent.Guests}`,
-    Starters: `${demoContent.Starters}`,
+    Hour: '',
+    Duration: '',
+    Table: '',
+    Guests: '',
+    Starters: '',
   });
 
   const handleChange = name => event => {
@@ -59,35 +53,36 @@ const TablesEvents = () => {
       return (state.Starters);
     }
   };
-
   return (
     <Paper className={styles.component}>
-      <h2>Tables-events view</h2>
+      <h2>Tables-reservation-new view</h2>
       <form className={styles.form}>
         <TextField
           label='Event Id'
-          defaultValue={demoContent.eventId} />
+          defaultValue=''
+        />
         <TextField
           label='Date'
           type="date"
-          defaultValue={demoContent.eventDate}
+          defaultValue={currentDate()}
         />
       </form>
-      {demoContent.eventOptions.map(eventOptions => (
-        <FormControl key={eventOptions.id} className={styles.form}>
-          <InputLabel id={`${eventOptions.id}-label`}>{eventOptions.id}</InputLabel>
+      {demoContent.reservationOptions.map(reservationOptions => (
+        <FormControl key={reservationOptions.id} className={styles.form}>
+          {console.log(setValue(reservationOptions.id))}
+          <InputLabel id={`${reservationOptions.id}-label`}>{reservationOptions.id}</InputLabel>
           <Select
             native
-            labelId={`${eventOptions.id}-label`}
-            id={eventOptions.id}
-            value={setValue(eventOptions.id)}
-            onChange={handleChange(`${eventOptions.id}`)}
+            labelId={`${reservationOptions.id}-label`}
+            id={reservationOptions.id}
+            value={setValue(reservationOptions.id)}
+            onChange={handleChange(`${reservationOptions.id}`)}
             inputProps={{
-              name: `${eventOptions.id}`,
-              id: `${eventOptions.id}`,
+              name: `${reservationOptions.id}`,
+              id: `${reservationOptions.id}`,
             }}
           >
-            {eventOptions.options.map(option => (
+            {reservationOptions.options.map(option => (
               <option value={option} key={option}>{option}</option>
             ))}
           </Select>
@@ -99,4 +94,4 @@ const TablesEvents = () => {
   );
 };
 
-export default TablesEvents;
+export default TablesReservationNew;

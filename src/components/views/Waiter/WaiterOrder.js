@@ -94,7 +94,7 @@ const demoContent = {
 const WaiterOrder = () => (
 
   <Paper className={styles.component}>
-    <h2>Order XXX</h2>
+    <h1>Order XXX</h1>
     <Table>
       <TableHead>
         <TableCell>Table</TableCell>

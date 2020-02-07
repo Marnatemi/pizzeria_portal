@@ -9,6 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { currentDateTime } from './utilsTables';
+
 
 
 const demoContent = [
@@ -43,13 +45,13 @@ const links = table => {
   if (table > 99) {
     return (
       <TableCell>
-        <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/booked/${table}`} variant='outlined' color='primary'>{table}</Button>
+        <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/reservation/booked/${table}`} variant='outlined' color='primary'>{table}</Button>
       </TableCell>
     );
   } else if (table === '') {
     return (
       <TableCell>
-        <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>B</Button>
+        <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/reservation/new`}>R</Button>
         <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/events/new`}>E</Button>
       </TableCell>
     );
@@ -62,24 +64,6 @@ const links = table => {
   }
 };
 
-const currentDate = () => {
-  const date = new Date();
-  let currentDay = date.getDate();
-  let currentMonth = date.getMonth();
-  let currentYear = date.getFullYear();
-  let currentHour = date.getHours();
-  let currentMins = date.getMinutes();
-
-  currentDay = currentDay  < 10 ? '0' + currentDay : currentDay;
-  currentMonth = currentMonth < 10 ? '0' + currentMonth : currentMonth;
-  currentHour = currentHour < 10 ? '0' + currentHour : currentHour;
-  currentMins = currentMins < 10 ? '0' + currentMins : currentMins;
-
-
-  const correctFormatDate = currentYear + '-' + currentMonth + '-' + currentDay + 'T' + currentHour + ':' + currentMins;
-  return (correctFormatDate);
-};
-
 const Tables = () => (
   <Paper className={styles.component}>
     <h2>Tables view</h2>
@@ -87,15 +71,17 @@ const Tables = () => (
       <TextField
         label='Date'
         type='datetime-local'
-        defaultValue={currentDate()}
+        defaultValue={currentDateTime()}
       />
     </form>
     <Table size='small'>
       <TableHead>
-        <TableCell>Hour</TableCell>
-        <TableCell>Table 1</TableCell>
-        <TableCell>Table 2</TableCell>
-        <TableCell>Table 3</TableCell>
+        <TableRow>
+          <TableCell>Hour</TableCell>
+          <TableCell>Table 1</TableCell>
+          <TableCell>Table 2</TableCell>
+          <TableCell>Table 3</TableCell>
+        </TableRow>
       </TableHead>
       <TableBody>
         {demoContent.map(row => (

@@ -6,4 +6,10 @@
 
 .form {
   margin: 2*$base-size;
+  width: 200px;
+  >* {
+    margin: ($base-size)/2;
+  }
 }
+
+

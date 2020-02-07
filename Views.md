@@ -20,7 +20,7 @@
     - ma przypominać widok tygodnia w kalendarzu google, gdzie w kolumnach zamiast dni są różne stoliki
     - po liknięciu rezerwacji lub eventu przechodzimy na podstronę szczegółów
 - "/tables/booking/:id"
-  - zawiera wszystkie informacje dtyczące rezerwacji
+  - zawiera wszystkie informacje dotyczące rezerwacji
   - umożliwia edycję i zapisanie zmian
 - "/tables/booking/new"
   - analogicznie do powyższej, bez początkowych informacji
