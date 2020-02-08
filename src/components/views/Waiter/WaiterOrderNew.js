@@ -78,25 +78,39 @@ const WaiterOrderNew = () => (
     <h1>New Order</h1>
     <Table>
       <TableHead>
-        <TableCell>Table</TableCell>
-        <TableCell>Products</TableCell>
-        <TableCell>Options</TableCell>
-        <TableCell>Price</TableCell>
+        <TableRow>
+          <TableCell>Table</TableCell>
+          <TableCell>Products</TableCell>
+          <TableCell>Options</TableCell>
+          <TableCell>Price</TableCell>
+          <TableCell>Total</TableCell>
+        </TableRow>
       </TableHead>
       <TableBody>
         <TableRow>
           <TableCell><Input defaultValue={demoContent.newOrder.id}></Input></TableCell>
           <TableCell>{demoContent.newOrder.order.map(product => (
             <List key={product.id}>
-              <TableCell>{product.id}</TableCell>
+              <ListItem>{product.id}</ListItem>
+
             </List>
           ))}
           </TableCell>
           <TableCell>{demoContent.newOrder.order.map(product => (
             <List key={product}>
-              {product.options.map(option => (
-                <TableCell key={option}>{option}</TableCell>
-              ))}
+              <ListItem>
+                {product.options.map(option => (
+                  <p key={option} className={styles.option}>{option}</p>
+                ))}
+              </ListItem>
+              <Divider />
+            </List>
+          ))}
+          </TableCell>
+          <TableCell>{demoContent.newOrder.order.map(product => (
+            <List key={product.id}>
+              <ListItem>{product.price}$</ListItem>
+              <Divider />
             </List>
           ))}
           </TableCell>

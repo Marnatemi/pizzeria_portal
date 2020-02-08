@@ -19,7 +19,7 @@ import Divider from '@material-ui/core/Divider';
 const demoContent = {
   order:
   {
-    id: '1',
+    id: '123',
     products: [
       {
         id: 'Breakfast',
@@ -94,35 +94,42 @@ const demoContent = {
 const WaiterOrder = () => (
 
   <Paper className={styles.component}>
-    <h1>Order XXX</h1>
+    <h1>Order {demoContent.order.id}</h1>
     <Table>
       <TableHead>
-        <TableCell>Table</TableCell>
-        <TableCell>Products</TableCell>
-        <TableCell>Options</TableCell>
-        <TableCell>Price</TableCell>
-        <TableCell>Total</TableCell>
+        <TableRow>
+          <TableCell>Table</TableCell>
+          <TableCell>Products</TableCell>
+          <TableCell>Options</TableCell>
+          <TableCell>Price</TableCell>
+          <TableCell>Total</TableCell>
+        </TableRow>
       </TableHead>
       <TableBody>
         <TableRow>
           <TableCell>{demoContent.order.id}</TableCell>
           <TableCell>{demoContent.order.products.map(product => (
             <List key={product.id}>
-              <TableCell>{product.id}</TableCell>
+              <ListItem>{product.id}</ListItem>
+              <Divider />
             </List>
           ))}
           </TableCell>
           <TableCell>{demoContent.order.products.map(product => (
             <List key={product.id}>
-              {product.options.map(option => (
-                <TableCell key={option}>{option}</TableCell>
-              ))}
+              <ListItem>
+                {product.options.map(option => (
+                  <p key={option} className={styles.option}>{option}</p>
+                ))}
+              </ListItem>
+              <Divider />
             </List>
           ))}
           </TableCell>
           <TableCell>{demoContent.order.products.map(product => (
-            <List key={product.price}>
-              <TableCell >{product.price}$</TableCell>
+            <List key={product.id}>
+              <ListItem >{product.price}$</ListItem>
+              <Divider />
             </List>
           ))}
           </TableCell>

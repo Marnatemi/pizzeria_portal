@@ -2,4 +2,20 @@
 
 .component {
   padding: $base-size;
+  >ul {
+    margin-top: 4*$base-size;
+  }
 }
+
+
+.form {
+  margin: 2*$base-size;
+}
+
+.list{
+  width: 50%;
+  >* {
+    flex-basis: 0;
+  }
+}
+

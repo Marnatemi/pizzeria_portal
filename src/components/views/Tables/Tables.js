@@ -66,7 +66,7 @@ const links = table => {
 
 const Tables = () => (
   <Paper className={styles.component}>
-    <h2>Tables view</h2>
+    <h1>Tables view</h1>
     <form className={styles.form}>
       <TextField
         label='Date'

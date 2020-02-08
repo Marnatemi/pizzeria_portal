@@ -5,6 +5,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 
 const demoContent = {
   eventOptions: [
@@ -62,7 +65,7 @@ const TablesEvents = () => {
 
   return (
     <Paper className={styles.component}>
-      <h2>Tables-events view</h2>
+      <h1>Tables-events view</h1>
       <form className={styles.form}>
         <TextField
           label='Event Id'
@@ -93,6 +96,15 @@ const TablesEvents = () => {
           </Select>
         </FormControl>
       ))}
+      <Box className={styles.box}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          startIcon={<PlaylistAddCheckIcon />}
+          className={styles.button}
+        >Confirm</Button>
+      </Box>
 
 
     </Paper>

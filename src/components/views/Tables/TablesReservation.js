@@ -5,6 +5,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 
 const demoContent = {
   reservationOptions: [
@@ -60,7 +63,7 @@ const TablesReservation = () => {
   };
   return (
     <Paper className={styles.component}>
-      <h2>Tables-reservation view</h2>
+      <h1>Tables-reservation view</h1>
       <form className={styles.form}>
         <TextField
           label='Event Id'
@@ -92,7 +95,15 @@ const TablesReservation = () => {
           </Select>
         </FormControl>
       ))}
-
+      <Box className={styles.box}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          startIcon={<PlaylistAddCheckIcon />}
+          className={styles.button}
+        >Confirm</Button>
+      </Box>
 
     </Paper>
   );

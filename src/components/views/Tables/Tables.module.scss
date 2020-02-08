@@ -8,8 +8,19 @@
   margin: 2*$base-size;
   width: 200px;
   >* {
-    margin: ($base-size)/2;
+    margin: $base-size/2;
   }
 }
 
+.box {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
+
+.button {
+  padding: $base-size 2*$base-size;
+}
 
