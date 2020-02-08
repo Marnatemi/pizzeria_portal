@@ -39,7 +39,7 @@ const demoContent = {
 };
 
 const setId = id => {
-  if(id < 100){return('Reservation')}else{return('Event');}
+  if(id >= 100){return('Reservation');}else{return('Event');}
 };
 
 const Dashboard = () => (
