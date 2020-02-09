@@ -1,15 +1,16 @@
 /* global require, process */
-
 const fs = require('fs');
 const path = require('path');
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('build/db/app.json');
+//const cors = require('cors');
 const middlewares = jsonServer.defaults({
   static: 'build',
-  noCors: true,
+  noCors: false,
 });
 const port = process.env.PORT || 3131;
+//server.use(cors());
 
 server.get(/^\/panel.*/, (req,res) =>{
   if(req.url === '/panel'){
